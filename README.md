@@ -35,6 +35,6 @@ python2.7 waf configure
 python2.7 waf build
 ```
 ## Advanced Data Mining 
+This work has been done under the supervision of Professor U Kang by Mohammadsadegh Najafi and Chris Hicky for Advanced Data Mining Course at Seoul National University.
 
-This work has been done under the supervision of Professor U kang by Mohammadsadegh Najafi and Chris Hicky for Advnaced Data Mining Course at Seoul National University.
 
