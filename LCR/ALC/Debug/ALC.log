@@ -1,0 +1,5 @@
+﻿  ALC.cpp
+c:\users\najafi\source\repos\alc\alc\alc.cpp(16): warning C4474: 'printf' : too many arguments passed for format string
+  c:\users\najafi\source\repos\alc\alc\alc.cpp(16): note: placeholders and their parameters expect 0 variadic arguments, but 1 were provided
+c:\users\najafi\source\repos\alc\alc\alc.cpp(15): warning C4101: 'counter': unreferenced local variable
+  ALC.vcxproj -> C:\Users\najafi\source\repos\ALC\Debug\ALC.exe

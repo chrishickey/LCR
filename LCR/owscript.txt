@@ -1,0 +1,140 @@
+VERSION = '0.0.1'
+APPNAME = 'betweenness'
+
+srcdir = '.'
+blddir = 'build'
+
+def set_options(ctx):
+  ctx.tool_options('compiler_cxx')
+
+def configure(ctx):
+  ctx.check_tool('compiler_cxx')
+  ctx.check_cxx(lib = ['glog', 'gflags'], uselib_store = 'common')
+  ctx.env.CXXFLAGS += ['-O2', '-g', '-I/usr/local/include/', '-std=c++0x']
+  ctx.env.append_value('LINKFLAGS', ['-L/usr/local/lib/'])
+
+
+def build(bld):
+
+  IndexList = ['BFSIndex','NeighbourExchange', 'PartialIndex', 'DoubleBFS', 'LandmarkedIndex'];
+  BIndexList = ['BoundedBFS'];
+
+  bld(features     = 'cxx cstaticlib',
+      source       = ['Graph/DGraph.cc'],
+      target       = 'DGraph',
+      includes     = ['.'])
+
+  bld(features     = 'cxx cprogram',
+      source       = ['tests/DGraphTest.cc'],
+      target       = 'DGraphTest',
+      includes     = ['.'],
+      uselib_local = ['DGraph'])
+
+  bld(features     = 'cxx cstaticlib',
+      source       = ['Index/UnboundedLCR/BFSIndex.cc'],
+      target       = 'BFSIndex',
+      includes     = ['.'])
+
+  bld(features     = 'cxx cstaticlib',
+      source       = ['Index/UnboundedLCR/NeighbourExchange.cc'],
+      target       = 'NeighbourExchange',
+      includes     = ['.'])
+
+  bld(features     = 'cxx cstaticlib',
+      source       = ['Index/UnboundedLCR/DoubleBFS.cc'],
+      target       = 'DoubleBFS',
+      includes     = ['.'],
+      uselib_local = '')
+
+  bld(features     = 'cxx cstaticlib',
+      source       = ['Index/UnboundedLCR/PartialIndex.cc'],
+      target       = 'PartialIndex',
+      includes     = ['.'])
+
+  bld(features     = 'cxx cstaticlib',
+      source       = ['Index/UnboundedLCR/LandmarkedIndex.cc'],
+      target       = 'LandmarkedIndex',
+      includes     = ['.'])
+
+  bld(features     = 'cxx cprogram',
+      source       = ['experiments/Index/UnboundedLCR/genQuery.cc'],
+      target       = 'genQuery',
+      includes     = ['.'],
+      uselib_local = 'BFSIndex')
+
+  bld(features     = 'cxx cprogram',
+      source       = ['experiments/genStats.cc'],
+      target       = 'genStats',
+      includes     = ['.'],
+      uselib_local = 'BFSIndex')
+
+  bld(features     = 'cxx cprogram',
+      source       = ['experiments/Index/UnboundedLCR/runExperiment.cc'],
+      target       = 'runExperiment',
+      includes     = ['.'],
+      uselib_local = IndexList)
+
+  bld(features     = 'cxx cprogram',
+      source       = ['tests/Index/UnboundedLCR/ExactIndexTest.cc'],
+      target       = 'ExactIndexTest',
+      includes     = ['.'],
+      uselib_local = IndexList)
+
+  bld(features     = 'cxx cprogram',
+      source       = ['tests/Index/UnboundedLCR/PartialIndexTest.cc'],
+      target       = 'PartialIndexTest',
+      includes     = ['.'],
+      uselib_local = ['PartialIndex'])
+
+  bld(features     = 'cxx cprogram',
+      source       = ['tests/Index/UnboundedLCR/LandmarkedIndexTest.cc'],
+      target       = 'LandmarkedIndexTest',
+      includes     = ['.'],
+      uselib_local = ['LandmarkedIndex'])
+
+  bld(features     = 'cxx cprogram',
+      source       = ['tests/Index/UnboundedLCR/IndexTest.cc'],
+      target       = 'IndexTest',
+      includes     = ['.'],
+      uselib_local = IndexList)
+
+  bld(features     = 'cxx cstaticlib',
+      source       = ['Index/BoundedLCR/BoundedBFS.cc'],
+      target       = 'BoundedBFS',
+      includes     = ['.']
+      )
+
+  bld(features     = 'cxx cprogram',
+      source       = ['tests/Index/BoundedLCR/BoundedBFSTest.cc'],
+      target       = 'BoundedBFSTest',
+      includes     = ['.'],
+      uselib_local = ['BoundedBFS'])
+
+  bld(features     = 'cxx cprogram',
+      source       = ['experiments/Index/BoundedLCR/genQuery.cc'],
+      target       = 'boundedGenQuery',
+      includes     = ['.'],
+      uselib_local = ['BoundedBFS'])
+
+  bld(features     = 'cxx cstaticlib',
+      source       = ['Index/UnboundedLCR/LandmarkedIndexWP.cc'],
+      target       = 'LandmarkedIndexWP',
+      includes     = ['.']
+      )
+
+  bld(features     = 'cxx cprogram',
+      source       = ['tests/Index/UnboundedLCR/LandmarkedIndexWPTest.cc'],
+      target       = 'LandmarkedIndexWPTest',
+      includes     = ['.'],
+      uselib_local = ['LandmarkedIndexWP'])
+
+      bld(features     = 'cxx cstaticlib',
+          source       = ['Index/UnboundedLCR/Zou/Zou.cc'],
+          target       = 'Zou',
+          includes     = ['.'])
+
+  bld(features     = 'cxx cprogram',
+      source       = ['tests/Index/UnboundedLCR/ZouTest.cc'],
+      target       = 'ZouTest',
+      includes     = ['.'],
+      uselib_local = ['Zou'])

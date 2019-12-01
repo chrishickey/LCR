@@ -1,0 +1,7 @@
+gc,gc,Journeyer
+gc,prigaux,Master
+gc,jgarzik,Master
+prigaux,gc,Journeyer
+prigaux,prigaux,Master
+prigaux,jgarzik,Master
+jgarzik,prigaux,Master

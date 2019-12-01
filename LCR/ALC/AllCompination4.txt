@@ -1,0 +1,15 @@
+Master,Observer
+Journeyer
+Master
+Observer
+Master,Journeyer,Observer
+Journeyer,Apprentice
+Journeyer,Observer,Apprentice
+Master,Journeyer
+Journeyer,Observer
+Apprentice
+Master,Observer,Apprentice
+Master,Apprentice
+Master,Journeyer,Apprentice
+Master,Journeyer,Observer,Apprentice
+Observer,Apprentice

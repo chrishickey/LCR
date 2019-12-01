@@ -1,0 +1,46 @@
+# project betweenness (0.0.1) configured on Fri Nov 29 22:34:08 2019 by
+# waf 1.5.18 (abi 7, python 2070fc1 on linux2)
+# using ./waf configure
+#
+
+----------------------------------------
+Checking for program g++ or c++
+  find program=['g++', 'c++'] paths=[] var='CXX'
+  -> '/usr/bin/g++'
+
+----------------------------------------
+Checking for program cpp
+  find program=['cpp'] paths=[] var='CPP'
+  -> '/usr/bin/cpp'
+
+----------------------------------------
+Checking for program ar
+  find program=['ar'] paths=[] var='AR'
+  -> '/usr/bin/ar'
+
+----------------------------------------
+Checking for program ranlib
+  find program=['ranlib'] paths=[] var='RANLIB'
+  -> '/usr/bin/ranlib'
+
+----------------------------------------
+Checking for g++ 
+ok 
+
+----------------------------------------
+Checking for library ['glog', 'gflags']
+==>
+
+int main() {
+	return 0;
+}
+
+<==
+[1/2] [32mcxx: build/.conf_check_0/test.cpp -> build/.conf_check_0/testbuild/default/test_1.o
+[0m['/usr/bin/g++', '../test.cpp', '-c', '-o', 'default/test_1.o']
+[2/2] [33mcxx_link: build/.conf_check_0/testbuild/default/test_1.o -> build/.conf_check_0/testbuild/default/testprog
+[0m/usr/bin/ld: cannot find -lglog
+/usr/bin/ld: cannot find -lgflags
+collect2: error: ld returned 1 exit status
+['/usr/bin/g++', 'default/test_1.o', '-o', '/home/rm2016/LCR-master/LCR/build/.conf_check_0/testbuild/default/testprog', '-Wl,-Bdynamic', '-lglog', '-lgflags']
+command returned 'Build failed:  -> task failed (err #1): \n\t{task: cxx_link test_1.o -> testprog}'not found
