@@ -21,7 +21,7 @@ The code can be built by running:
 
 ```sh
 cd LCRIndexing
-sh ./rebuild
+./rebuild.sh
 ```
 
 on Mac or Linux. 
