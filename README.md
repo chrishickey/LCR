@@ -46,7 +46,7 @@ cd LCR
  
  ```sh
 cd LCR
-./build/default/runExperiment tests/graphs/V5kd3l8exp 1000 log.txt > results.txt
+./build/default/runExperiment tests/graphs/V5kD5L8exp.edge  1000 log.txt > results.txt
 ```
 
 ## Additional Scripts
