@@ -58,8 +58,11 @@ cd LCR
 In order to create the zip file for packaging the project run 
 ```sh
 cd LCR
-./mkaeZip.sh
+./makeZip.sh
 ```
+
+## Paper
+Both the paper and presentations for this project are located in the LCR/PresentationMaterial folder
 
 ## Advanced Data Mining 
 This work has been done under the supervision of Professor U Kang by Mohammadsadegh Najafi and Chris Hicky for Advanced Data Mining Course at Seoul National University.

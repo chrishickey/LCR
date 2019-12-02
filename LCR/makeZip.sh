@@ -1,3 +1,3 @@
 #!/bin/sh
 
-zip -r MohammadChrisFinalProject.zip .. -x *.git* 
+zip -r MohammadChrisFinalProject.zip .. -x *.git* -x *.vscode*
